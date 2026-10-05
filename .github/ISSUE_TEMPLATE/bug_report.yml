@@ -1,0 +1,73 @@
+name: Bug report
+description: Report a problem you can reproduce. 재현할 수 있는 문제를 제보해 주세요.
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Issues are public. Remove API keys, passwords and private server details from everything you paste.
+        이슈는 공개됩니다. API 키, 비밀번호, 비공개 서버 정보는 삭제한 뒤 붙여 넣어 주세요.
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened
+      description: Describe the problem and what you expected instead.
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. ...
+        2. ...
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: MacAIterm version
+      description: Shown in the top-right corner of the window, for example 0.1.0.
+    validations:
+      required: true
+  - type: input
+    id: macos
+    attributes:
+      label: macOS version and Mac model
+      placeholder: macOS 15.2, MacBook Air M2
+    validations:
+      required: true
+  - type: dropdown
+    id: provider
+    attributes:
+      label: Model provider
+      options:
+        - Ollama (local)
+        - OpenAI-compatible server
+        - OpenAI API
+        - Codex CLI
+        - Not related to a model
+    validations:
+      required: true
+  - type: dropdown
+    id: ssh
+    attributes:
+      label: Does it involve an SSH server?
+      options:
+        - "No"
+        - "Yes"
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Screenshots or output
+      description: Paste text output or drag in a screenshot.
+      render: shell
+  - type: checkboxes
+    id: privacy
+    attributes:
+      label: Privacy check
+      options:
+        - label: I removed API keys, passwords and private server details.
+          required: true
