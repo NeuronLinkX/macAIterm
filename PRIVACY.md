@@ -52,7 +52,7 @@ The AI sees the terminal state it needs for the request: the working directory l
 
 ## Contact form on the website
 
-If you use the contact form on the MacAIterm website, the name, email address, topic and message you type are sent to the site's server, which forwards them to the maintainer by email. The site does not keep a copy of the message. To limit spam, the server briefly keeps a salted hash of your IP address together with the time of the request (at most one hour). The form is optional: you can use GitHub issues instead.
+If you use the contact form on the MacAIterm website, the name, email address, topic, message and any files you attach are sent to the site's server, which forwards them to the maintainer by email. The site does not keep a copy of the message or of the attached files. To limit spam, the server briefly keeps a salted hash of your IP address together with the time of the request (at most one hour). The form is optional: you can use GitHub issues instead.
 
 ## Changes to this page
 
