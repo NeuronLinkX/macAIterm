@@ -29,6 +29,7 @@ Delete everything: quit the app and remove that folder. Nothing is stored anywhe
 | **Update check** | nothing but the request itself | `api.github.com` (releases of this repository) | off by default; when you press "지금 확인" or turn it on |
 | **Model download** | the model name | your Ollama → its registry | only when you press a download button; the app never downloads on its own |
 | **Opening links** | n/a | `ollama.com`, `github.com`, `platform.openai.com` pages | only on click (other addresses are refused) |
+| **Local network access request** | one standard Bonjour (mDNS) question to your local network and one connection attempt to your router, nothing else | devices on your own network | only when you press "허용 요청" (Ask for access) in Settings; the app also makes one short connection attempt (no data sent) to a server's private address when connecting to it fails with "No route to host" |
 
 ## SSH (servers you connect to)
 
@@ -38,6 +39,7 @@ Delete everything: quit the app and remove that folder. Nothing is stored anywhe
 - With the AI on a server, commands and file tools run on that server **through the terminal you can see** (or through the same connection, after it proved to reach the same account). Their output goes to your configured model like any other command output: with a cloud model that means server output leaves your Mac, just as it would for local commands; secrets are masked first. Changes on a server always ask for approval (Settings → SSH).
 - Host-key warnings (changed key, refused connection …) are shown as notes in the timeline with the key fingerprint; the app never answers a host-key question for you.
 - Everything the app writes during a transfer is verified with SHA-256 before it replaces anything; a cancelled transfer never leaves a half-written file under its final name. Files you drag out to the Finder are cached in a temporary folder that is removed when the app quits.
+- The **remote screen (VNC)** travels only through the tab's own SSH connection (`ssh -W`): no port is opened on your Mac and no extra login is made. A VNC password is used for that one connection and never stored. The AI does not receive screen images and cannot operate the screen.
 
 ## API keys
 
@@ -49,10 +51,6 @@ Delete everything: quit the app and remove that folder. Nothing is stored anywhe
 ## What the AI can see
 
 The AI sees the terminal state it needs for the request: the working directory listing, project files it opens, recent command output. **Outputs and file contents are treated as untrusted data** (a file cannot give the AI instructions), secrets are masked before anything is sent to a model, and risky actions need your approval (see "동작 원칙" in the README). With a local model none of this leaves the Mac.
-
-## Contact form on the website
-
-If you use the contact form on the MacAIterm website, the name, email address, topic, message and any files you attach are sent to the site's server, which forwards them to the maintainer by email. The site does not keep a copy of the message or of the attached files. To limit spam, the server briefly keeps a salted hash of your IP address together with the time of the request (at most one hour). The form is optional: you can use GitHub issues instead.
 
 ## Changes to this page
 
